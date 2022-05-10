@@ -120,8 +120,6 @@ public class QoiDecoder : IImageDecoder
                     _previous.B += (byte) lumaDb;
                     return;
                 case >= 0b1100_0000 and < 0b1111_1110: // QOI_OP_RUN
-                    Debug.Assert((op & 0b1100_0000) == 0b1100_0000);
-                    Debug.Assert(op < 0b1111_1110);
                     _runLength = op & 0b0011_1111;
                     return;
                 case 0b1111_1110 or 0b1111_1111: // QOI_OP_RGB or QOI_OP_RGBA
